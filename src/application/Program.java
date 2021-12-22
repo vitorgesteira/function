@@ -22,14 +22,11 @@ public class Program {
 		list.add(new Product("Tablet", 350.50));
 		list.add(new Product("HD Case", 80.90));
 		
-		//declara a function
-		Function<Product, String> func = p -> p.getName().toUpperCase();
-		
 		/* list.stream(): converte a lista para stream
-		 * map(func): transforma a lista
+		 * map(p -> p.getName().toUpperCase()): transforma a lista
 		 * collect(Collectors.toList()): transforma de stream para lista de novo
 		 * List<String> names: salva na nova lista de nomes*/
-		List<String> names = list.stream().map(func).collect(Collectors.toList());
+		List<String> names = list.stream().map(p -> p.getName().toUpperCase()).collect(Collectors.toList());
 		
 		names.forEach(System.out::println);
 	}
