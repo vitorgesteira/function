@@ -6,7 +6,6 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 
 import entities.Product;
-import util.UpperCaseName;
 
 public class Program {
 
@@ -23,10 +22,10 @@ public class Program {
 		list.add(new Product("HD Case", 80.90));
 		
 		/* list.stream(): converte a lista para stream
-		 * map(new UpperCaseName()): transforma a lista
+		 * map(Product::staticUpperCaseName): transforma a lista
 		 * collect(Collectors.toList()): transforma de stream para lista de novo
 		 * List<String> names: salva na nova lista de nomes*/
-		List<String> names = list.stream().map(new UpperCaseName()).collect(Collectors.toList());
+		List<String> names = list.stream().map(Product::staticUpperCaseName).collect(Collectors.toList());
 		
 		names.forEach(System.out::println);
 	}
